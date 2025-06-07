@@ -4,4 +4,4 @@ export * from './aspect-ratio';
 export * from './card';
 export * from './hover-card';
 export * from './scroll-area';
-
+export * from './custom/navbar'
