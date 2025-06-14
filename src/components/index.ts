@@ -5,3 +5,6 @@ export * from './card';
 export * from './hover-card';
 export * from './scroll-area';
 export * from './custom/navbar'
+export * from './custom/underline-link'
+export * from './custom/dlx-link'
+export * from './custom/footer'

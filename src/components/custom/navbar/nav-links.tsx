@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import type { DlxNavbarProps } from ".";
+import { DlxLink } from "../dlx-link";
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
@@ -8,10 +9,11 @@ const navLinks = [
 ];
 
 interface NavLinksProps extends DlxNavbarProps {
-  isMobile?:boolean
+  isMobile?: boolean;
 }
 
 export function NavLinks({ isMobile = false, type }: NavLinksProps) {
+  const textColor = type === "smoke" ? "text-jet" : "text-smoke";
   return (
     <div
       className={cn(
@@ -20,22 +22,12 @@ export function NavLinks({ isMobile = false, type }: NavLinksProps) {
       )}
     >
       {navLinks.map((link) => (
-        <a
-          key={link.href}
-          href={link.href}
-          className={cn(
-            "relative px-4 py-2 transition-all duration-200 group",
-            type === 'smoke' ? 'text-jet' : 'text-smoke'
-          )}
-        >
-          {link.label}
-          <UnderlineNavLink />
-        </a>
+        <div className="px-4 py-2" key={link.href}>
+          <DlxLink href={link.href} className={textColor}>
+            {link.label}
+          </DlxLink>
+        </div>
       ))}
     </div>
   );
 }
-
-const UnderlineNavLink = () => (
-  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-saffron transition-all duration-200 group-hover:w-3/4 group-hover:left-1/8"></span>
-);
