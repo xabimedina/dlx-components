@@ -9,14 +9,15 @@ import { NavLogo } from "./nav-logo";
 import { NavMobile } from "./nav-mobile";
 
 export interface DlxNavbarProps {
-  type?: "default" | "smoke"
+  type?: "default" | "smoke";
+  children?: React.ReactNode;
 }
 
-export function DlxNavbar({ type = 'default' }:DlxNavbarProps) {
+export function DlxNavbar({ type = "default", children }: DlxNavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  
+
   const lastScrollY = useRef(0);
 
   // Memoize the scroll handler
@@ -25,7 +26,7 @@ export function DlxNavbar({ type = 'default' }:DlxNavbarProps) {
 
     // Determine if scrolled past threshold
     setIsScrolled(currentScrollY > 10);
-    
+
     // Handle navbar visibility
     if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
       setIsVisible(false);
@@ -35,12 +36,12 @@ export function DlxNavbar({ type = 'default' }:DlxNavbarProps) {
 
     lastScrollY.current = currentScrollY;
   }, []);
-  
+
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { 
-      passive: true 
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
     });
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -95,15 +96,15 @@ export function DlxNavbar({ type = 'default' }:DlxNavbarProps) {
             "bg-smoke/50 backdrop-blur-md shadow-md border-b border-smoke/50":
               isScrolled && type === "smoke",
           },
-          isVisible ? "transform-none" : "-translate-y-full",
+          isVisible ? "transform-none" : "-translate-y-full"
         )}
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16 z-50">
-            <NavLogo type={type}  />
-            
+            <NavLogo type={type} />
+
             <div className="max-md:hidden">
-              <NavLinks type={type} />
+              <NavLinks>{children}</NavLinks>
             </div>
 
             <div className="max-md:hidden">
@@ -118,7 +119,9 @@ export function DlxNavbar({ type = 'default' }:DlxNavbarProps) {
           </div>
         </div>
       </nav>
-      <NavMobile isMenuOpen={isMenuOpen} closeMenu={closeMenu} />
+      <NavMobile isMenuOpen={isMenuOpen} closeMenu={closeMenu}>
+        {children}
+      </NavMobile>
     </>
   );
 }

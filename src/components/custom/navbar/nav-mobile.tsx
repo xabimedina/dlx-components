@@ -5,9 +5,11 @@ import { Button } from "@/components/button";
 export function NavMobile({
   isMenuOpen,
   closeMenu,
+  children,
 }: {
   isMenuOpen: boolean;
   closeMenu: () => void;
+  children?: React.ReactNode;
 }) {
   return (
     <nav
@@ -17,7 +19,7 @@ export function NavMobile({
       )}
       onClick={closeMenu}
     >
-      <div className="absolute inset-0 bg-jet"/>
+      <div className="absolute inset-0 bg-jet" />
       <div
         className={cn(
           "absolute top-16 left-0 right-0 bottom-0 bg-jet transition-all duration-400 ease-initial",
@@ -27,7 +29,7 @@ export function NavMobile({
         )}
       >
         <div className="px-2 relative pt-10 pb-6 space-y-2 h-full flex flex-col">
-          <NavLinks isMobile={true} />
+          <NavLinks isMobile={true}>{children}</NavLinks>
           <Button
             className="absolute bottom-12 left-0 right-0 mx-8"
             variant="accent"
