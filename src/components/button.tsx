@@ -1,7 +1,7 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex px-4 py-2 cursor-pointer items-center justify-center gap-2 whitespace-nowrap text-sm transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none",
@@ -10,8 +10,7 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-smoke rounded-4xl text-jet font-semibold shadow-xs hover:bg-smoke/50 hover:ring-2 hover:ring-smoke/50 hover:ring-offset-1",
-        jet:
-          "bg-jet text-smoke rounded-4xl font-semibold shadow-xs hover:bg-jet/80 hover:ring-2 hover:ring-jet/80 hover:ring-offset-1",
+        jet: "bg-jet text-smoke rounded-4xl font-semibold shadow-xs hover:bg-jet/80 hover:ring-2 hover:ring-jet/80 hover:ring-offset-1",
         accent:
           "bg-saffron text-jet rounded-4xl font-semibold shadow-xs hover:bg-saffron/80 hover:ring-2 hover:ring-saffron/80 hover:ring-offset-1",
       },
@@ -27,7 +26,7 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 function Button({
   className,
@@ -37,17 +36,17 @@ function Button({
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
+    asChild?: boolean;
   }) {
-  const Comp = asChild ? Slot : "button"
+  const Comp = asChild ? Slot : "button";
 
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className}))}
+      className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
-  )
+  );
 }
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };
