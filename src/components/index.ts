@@ -12,3 +12,8 @@ export * from "./dialog";
 export * from "./input";
 export * from "./select";
 export * from "./checkbox";
+export * from "./sheet";
+export * from "./separator";
+export * from "./sidebar";
+export * from "./tooltip";
+export * from "./skeleton";

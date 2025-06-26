@@ -13,6 +13,8 @@ const buttonVariants = cva(
         jet: "bg-jet text-smoke rounded-4xl font-semibold shadow-xs hover:bg-jet/80 hover:ring-2 hover:ring-jet/80 hover:ring-offset-1",
         accent:
           "bg-saffron text-jet rounded-4xl font-semibold shadow-xs hover:bg-saffron/80 hover:ring-2 hover:ring-saffron/80 hover:ring-offset-1",
+        ghost:
+          "bg-transparent text-jet rounded-4xl font-semibold shadow-xs hover:bg-jet/80 hover:ring-2 hover:ring-jet/80 hover:ring-offset-1",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
