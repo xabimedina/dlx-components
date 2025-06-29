@@ -1,4 +1,9 @@
-@import 'tailwindcss';
+/* 1️⃣  Activa Tailwind y desactiva la detección automática   */
+@import "tailwindcss" source(none);
+
+/* 2️⃣  Registra SOLO el código fuente de la librería          */
+@source "./**/*.{ts,tsx,js,jsx}";
+
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
