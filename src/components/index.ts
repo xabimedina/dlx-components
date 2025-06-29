@@ -17,3 +17,7 @@ export * from "./separator";
 export * from "./sidebar";
 export * from "./tooltip";
 export * from "./skeleton";
+export * from "./table";
+export * from "./switch";
+export * from "./badge";
+export * from "./dropdown-menu";
