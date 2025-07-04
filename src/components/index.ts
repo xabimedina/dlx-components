@@ -21,3 +21,5 @@ export * from "./table";
 export * from "./switch";
 export * from "./badge";
 export * from "./dropdown-menu";
+export * from "./label";
+export * from "./textarea";
