@@ -15,19 +15,22 @@ jobs:
     steps:
       - name: Checkout del código
         uses: actions/checkout@v4
-      - name: Configurar Bun y el Registro de GitHub Packages
+        
+      - name: Configurar Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
+      - name: Configurar registro de GitHub Packages
+        run: |
+          echo "@jmurga97:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+
       - name: Instalar dependencias con Bun
-        # --frozen-lockfile asegura que se use bun.lockb para instalaciones consistentes
         run: bun install --frozen-lockfile
 
       - name: Compilar la librería de React
         run: bun run build
 
       - name: Publicar en GitHub Packages
-        run: bun publish --access public # --access public si quieres que el paquete sea accesible públicamente en GitHub Packages
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: bun publish --access public
