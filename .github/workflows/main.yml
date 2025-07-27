@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  release:
+    types: [published]
 
 jobs:
   build_and_publish:
@@ -25,6 +27,7 @@ jobs:
         run: |
           echo "@jmurga97:registry=https://npm.pkg.github.com" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+          cat ~/.npmrc
 
       - name: Instalar dependencias con Bun
         run: bun install --frozen-lockfile
@@ -32,5 +35,13 @@ jobs:
       - name: Compilar la librería de React
         run: bun run build
 
+      - name: Verificar archivos compilados
+        run: |
+          ls -la dist/
+          echo "Contenido del package.json:"
+          cat package.json | jq '.name, .version, .publishConfig'
+
       - name: Publicar en GitHub Packages
         run: bun publish --access public
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
