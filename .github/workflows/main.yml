@@ -1,0 +1,33 @@
+name: Publicar Librería de React en GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write 
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+      - name: Configurar Bun y el Registro de GitHub Packages
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Instalar dependencias con Bun
+        # --frozen-lockfile asegura que se use bun.lockb para instalaciones consistentes
+        run: bun install --frozen-lockfile
+
+      - name: Compilar la librería de React
+        run: bun run build
+
+      - name: Publicar en GitHub Packages
+        run: bun publish --access public # --access public si quieres que el paquete sea accesible públicamente en GitHub Packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
