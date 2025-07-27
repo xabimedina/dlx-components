@@ -30,4 +30,4 @@ jobs:
       - name: Publicar en GitHub Packages
         run: bun publish --access public # --access public si quieres que el paquete sea accesible públicamente en GitHub Packages
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
