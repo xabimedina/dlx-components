@@ -1,5 +1,5 @@
 {
-  "name": "@jmurga97/dlx-components",
+  "name": "dlx-components",
   "version": "1.0.0",
   "type": "module",
   "module": "./dist/dlx-components.es.js",

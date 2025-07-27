@@ -23,8 +23,7 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@jmurga97'
-        
+
       - name: Configurar Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -35,12 +34,6 @@ jobs:
 
       - name: Compilar la librería de React
         run: bun run build
-
-      - name: Verificar archivos compilados
-        run: |
-          ls -la dist/
-          echo "Contenido del package.json:"
-          cat package.json | jq '.name, .version, .publishConfig'
 
       - name: Publicar en GitHub Packages
         run: npm publish --access public
