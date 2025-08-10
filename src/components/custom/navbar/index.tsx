@@ -10,10 +10,11 @@ import { NavMobile } from "./nav-mobile";
 
 export interface DlxNavbarProps {
   type?: "default" | "smoke";
+  showCTA?: boolean;
   children?: React.ReactNode;
 }
 
-export function DlxNavbar({ type = "default", children }: DlxNavbarProps) {
+export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -107,9 +108,11 @@ export function DlxNavbar({ type = "default", children }: DlxNavbarProps) {
               <NavLinks>{children}</NavLinks>
             </div>
 
-            <div className="max-md:hidden">
-              <Button variant="accent">Calcula tu presupuesto</Button>
-            </div>
+            {showCTA && (
+              <div className="hidden max-md:block">
+                <Button variant="accent">Calcula tu presupuesto</Button>
+              </div>
+            )}
 
             <MenuButton
               toggleMenu={toggleMenu}
