@@ -42,13 +42,16 @@ export function DlxFooter() {
                 </h3>
                 <ul className="space-y-3">
                   <li>
-                    <DlxLink>RMNC</DlxLink>
+                    <DlxLink
+                      href="https://www.despejalax.com/proyectos">RMNC</DlxLink>
                   </li>
                   <li>
-                    <DlxLink>MGJA</DlxLink>
+                    <DlxLink
+                      href="https://www.despejalax.com/proyectos">MGJA</DlxLink>
                   </li>
                   <li>
-                    <DlxLink>XMYN</DlxLink>
+                    <DlxLink
+                      href="https://www.despejalax.com/proyectos">XMYN</DlxLink>
                   </li>
                 </ul>
               </div>

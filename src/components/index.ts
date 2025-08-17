@@ -8,6 +8,7 @@ export * from "./custom/navbar";
 export * from "./custom/underline-link";
 export * from "./custom/dlx-link";
 export * from "./custom/footer";
+export * from "./custom/loader";
 export * from "./dialog";
 export * from "./input";
 export * from "./select";
