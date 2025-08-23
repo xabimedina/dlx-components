@@ -3,19 +3,32 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 import dts from 'vite-plugin-dts';
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), dts({
-    rollupTypes: true,
-    tsconfigPath: "./tsconfig.build.json",
-  })],
+  plugins: [
+    react(),
+    tailwindcss(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(__dirname, 'src/theme.css'),
+          dest: './',
+        },
+      ],
+    }),
+    dts({
+      rollupTypes: true,
+      tsconfigPath: "./tsconfig.build.json",
+    })],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
+    minify: true,
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'dlx-components',
@@ -24,17 +37,18 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        "react", 
+        "react",
         "react-dom",
-        "lucide-react"
+        "lucide-react",
+        "tailwindcss",
       ],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM'        
+          'react-dom': 'ReactDOM',
+          tailwindcss: 'tailwindcss',
         }
       },
     },
-    cssCodeSplit: false,
   }
 })
