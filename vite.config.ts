@@ -3,21 +3,12 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 import dts from 'vite-plugin-dts';
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: path.resolve(__dirname, 'src/theme.css'),
-          dest: './',
-        },
-      ],
-    }),
     dts({
       rollupTypes: true,
       tsconfigPath: "./tsconfig.build.json",
