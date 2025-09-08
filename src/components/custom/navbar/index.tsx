@@ -83,7 +83,7 @@ export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNav
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out max-w-screen",
           {
             // Estado inicial (sin scroll)
             "bg-transparent": !isScrolled && type === "default",
@@ -109,7 +109,7 @@ export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNav
             </div>
 
             {showCTA && (
-              <div className="hidden max-md:block">
+              <div className="max-md:hidden">
                 <Button variant="accent">Calcula tu presupuesto</Button>
               </div>
             )}
@@ -122,7 +122,7 @@ export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNav
           </div>
         </div>
       </nav>
-      <NavMobile isMenuOpen={isMenuOpen} closeMenu={closeMenu}>
+      <NavMobile type={type} isMenuOpen={isMenuOpen} closeMenu={closeMenu}>
         {children}
       </NavMobile>
     </>

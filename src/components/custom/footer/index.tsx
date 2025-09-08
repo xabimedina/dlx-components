@@ -1,6 +1,6 @@
 import Instagram from "./icons/instagram";
 import LinkedIn from "./icons/linkedin";
-import YouTube from "./icons/youtube";
+//import YouTube from "./icons/youtube";
 import { DlxLink } from "../dlx-link";
 import { FooterSocialMedia } from "./footer-social-media";
 
@@ -26,13 +26,16 @@ export function DlxFooter() {
                 <h3 className="font-semibold text-lg mb-4">Servicios</h3>
                 <ul className="space-y-3">
                   <li>
-                    <DlxLink>Arquitectura</DlxLink>
+                    <DlxLink
+                      href="https://www.despejalax.com#arquitectura">Arquitectura</DlxLink>
                   </li>
                   <li>
-                    <DlxLink>Interiorismo</DlxLink>
+                    <DlxLink
+                      href="https://www.despejalax.com#interiorismo">Interiorismo</DlxLink>
                   </li>
                   <li>
-                    <DlxLink>Asesoramiento</DlxLink>
+                    <DlxLink
+                      href="https://www.despejalax.com#asesoramiento">Asesoramiento</DlxLink>
                   </li>
                 </ul>
               </div>
@@ -69,10 +72,10 @@ export function DlxFooter() {
                   icon={<LinkedIn className="h-5 w-5" />}
                   link="https://www.linkedin.com/company/despejalax/"
                 />
-                <FooterSocialMedia
+                {/*                 <FooterSocialMedia
                   icon={<YouTube className="h-5 w-5" />}
                   link="https://www.youtube.com/channel/UC0-3-9-0q-2-5-8-6-4"
-                />
+                /> */}
               </div>
             </div>
           </div>

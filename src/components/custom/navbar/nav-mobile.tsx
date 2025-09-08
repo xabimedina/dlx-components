@@ -6,10 +6,12 @@ export function NavMobile({
   isMenuOpen,
   closeMenu,
   children,
+  type = "default",
 }: {
   isMenuOpen: boolean;
   closeMenu: () => void;
   children?: React.ReactNode;
+  type?: "default" | "smoke";
 }) {
   return (
     <nav
@@ -22,10 +24,11 @@ export function NavMobile({
       <div className="absolute inset-0 bg-jet" />
       <div
         className={cn(
-          "absolute top-16 left-0 right-0 bottom-0 bg-jet transition-all duration-400 ease-initial",
+          "absolute top-16 left-0 right-0 bottom-0 bg-smoke transition-all duration-400 ease-initial",
           isMenuOpen
             ? "opacity-100 translate-y-0 "
-            : "opacity-0 -translate-y-full "
+            : "opacity-0 -translate-y-full ",
+          type === "smoke" ? "bg-smoke" : "bg-jet"
         )}
       >
         <div className="px-2 relative pt-10 pb-6 space-y-2 h-full flex flex-col">
