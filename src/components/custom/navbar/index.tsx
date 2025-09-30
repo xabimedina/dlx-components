@@ -122,7 +122,7 @@ export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNav
           </div>
         </div>
       </nav>
-      <NavMobile type={type} isMenuOpen={isMenuOpen} closeMenu={closeMenu}>
+      <NavMobile type={type} isMenuOpen={isMenuOpen} closeMenu={closeMenu} showCTA={showCTA}>
         {children}
       </NavMobile>
     </>

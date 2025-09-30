@@ -7,16 +7,18 @@ export function NavMobile({
   closeMenu,
   children,
   type = "default",
+  showCTA = true,
 }: {
   isMenuOpen: boolean;
   closeMenu: () => void;
   children?: React.ReactNode;
   type?: "default" | "smoke";
+  showCTA?: boolean;
 }) {
   return (
     <nav
       className={cn(
-        "fixed inset-0 z-40 md:hidden transition-all duration-1000 ease-in-out",
+        "fixed inset-0 z-90 md:hidden transition-all duration-1000 ease-in-out",
         isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
       )}
       onClick={closeMenu}
@@ -33,13 +35,15 @@ export function NavMobile({
       >
         <div className="px-2 relative pt-10 pb-6 space-y-2 h-full flex flex-col">
           <NavLinks isMobile={true}>{children}</NavLinks>
-          <Button
-            className="absolute bottom-12 left-0 right-0 mx-8"
-            variant="accent"
-            onClick={closeMenu}
-          >
-            Calcula tu presupuesto
-          </Button>
+          {showCTA && (
+            <Button
+              className="absolute bottom-12 left-0 right-0 mx-8"
+              variant="accent"
+              onClick={closeMenu}
+            >
+              Calcula tu presupuesto
+            </Button>
+          )}
         </div>
       </div>
     </nav>
