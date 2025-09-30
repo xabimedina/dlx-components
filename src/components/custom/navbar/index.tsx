@@ -83,7 +83,7 @@ export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNav
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-90 transition-all duration-300 ease-in-out max-w-screen",
+          "fixed top-0 left-0 right-0 z-100 transition-all duration-300 ease-in-out max-w-screen",
           {
             // Estado inicial (sin scroll)
             "bg-transparent": !isScrolled && type === "default",
@@ -101,7 +101,7 @@ export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNav
         )}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center h-16 z-90">
+          <div className="flex justify-between items-center h-16 z-100">
             <NavLogo type={type} />
 
             <div className="max-md:hidden">
