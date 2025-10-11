@@ -4,7 +4,14 @@ import LinkedIn from "./icons/linkedin";
 import { DlxLink } from "../dlx-link";
 import { FooterSocialMedia } from "./footer-social-media";
 
-export function DlxFooter() {
+interface FooterProps {
+  showSocialMedia?: boolean;
+  showServices?: boolean;
+  showLastProjects?: boolean;
+}
+
+
+export function DlxFooter({ showSocialMedia, showServices, showLastProjects }: FooterProps) {
   return (
     <div className="w-full">
       {/* Footer Section */}
@@ -22,62 +29,66 @@ export function DlxFooter() {
             </div>
 
             <div className="lg:col-span-2 grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="font-semibold text-lg mb-4">Servicios</h3>
-                <ul className="space-y-3">
-                  <li>
-                    <DlxLink
-                      href="https://www.despejalax.com#arquitectura">Arquitectura</DlxLink>
-                  </li>
-                  <li>
-                    <DlxLink
-                      href="https://www.despejalax.com#interiorismo">Interiorismo</DlxLink>
-                  </li>
-                  <li>
-                    <DlxLink
-                      href="https://www.despejalax.com#asesoramiento">Asesoramiento</DlxLink>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-4">
-                  Ultimos proyectos
-                </h3>
-                <ul className="space-y-3">
-                  <li>
-                    <DlxLink
-                      href="https://www.despejalax.com/proyectos">RMNC</DlxLink>
-                  </li>
-                  <li>
-                    <DlxLink
-                      href="https://www.despejalax.com/proyectos">MGJA</DlxLink>
-                  </li>
-                  <li>
-                    <DlxLink
-                      href="https://www.despejalax.com/proyectos">XMYN</DlxLink>
-                  </li>
-                </ul>
-              </div>
+              {showServices && (
+                <div>
+                  <h3 className="font-semibold text-lg mb-4">Servicios</h3>
+                  <ul className="space-y-3">
+                    <li>
+                      <DlxLink
+                        href="https://www.despejalax.com#arquitectura">Arquitectura</DlxLink>
+                    </li>
+                    <li>
+                      <DlxLink
+                        href="https://www.despejalax.com#interiorismo">Interiorismo</DlxLink>
+                    </li>
+                    <li>
+                      <DlxLink
+                        href="https://www.despejalax.com#asesoramiento">Asesoramiento</DlxLink>
+                    </li>
+                  </ul>
+                </div>)}
+
+              {showLastProjects && (
+                <div>
+                  <h3 className="font-semibold text-lg mb-4">
+                    Ultimos proyectos
+                  </h3>
+                  <ul className="space-y-3">
+                    <li>
+                      <DlxLink
+                        href="https://www.despejalax.com/proyectos">RMNC</DlxLink>
+                    </li>
+                    <li>
+                      <DlxLink
+                        href="https://www.despejalax.com/proyectos">MGJA</DlxLink>
+                    </li>
+                    <li>
+                      <DlxLink
+                        href="https://www.despejalax.com/proyectos">XMYN</DlxLink>
+                    </li>
+                  </ul>
+                </div>)}
             </div>
 
             {/* Social Media Icons */}
-            <div className="lg:col-span-1">
-              <h3 className="font-semibold text-lg mb-4">Síguenos</h3>
-              <div className="flex py-2 space-x-8">
-                <FooterSocialMedia
-                  icon={<Instagram className="h-5 w-5" />}
-                  link="https://instagram.com/despejalax"
-                />
-                <FooterSocialMedia
-                  icon={<LinkedIn className="h-5 w-5" />}
-                  link="https://www.linkedin.com/company/despejalax/"
-                />
-                {/*                 <FooterSocialMedia
+            {showSocialMedia && (
+              <div className="lg:col-span-1">
+                <h3 className="font-semibold text-lg mb-4">Síguenos</h3>
+                <div className="flex py-2 space-x-8">
+                  <FooterSocialMedia
+                    icon={<Instagram className="h-5 w-5" />}
+                    link="https://instagram.com/despejalax"
+                  />
+                  <FooterSocialMedia
+                    icon={<LinkedIn className="h-5 w-5" />}
+                    link="https://www.linkedin.com/company/despejalax/"
+                  />
+                  {/*                 <FooterSocialMedia
                   icon={<YouTube className="h-5 w-5" />}
                   link="https://www.youtube.com/channel/UC0-3-9-0q-2-5-8-6-4"
                 /> */}
-              </div>
-            </div>
+                </div>
+              </div>)}
           </div>
 
           {/* Bottom Bar */}

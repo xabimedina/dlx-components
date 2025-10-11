@@ -36,13 +36,15 @@ export function NavMobile({
         <div className="px-2 relative pt-10 pb-6 space-y-2 h-full flex flex-col">
           <NavLinks isMobile={true}>{children}</NavLinks>
           {showCTA && (
-            <Button
-              className="absolute bottom-12 left-0 right-0 mx-8"
-              variant="accent"
-              onClick={closeMenu}
-            >
-              Calcula tu presupuesto
-            </Button>
+            <a href="https://calculadora.despejalax.com" target="_blank">
+              <Button
+                className="absolute bottom-12 left-0 right-0 mx-8"
+                variant="accent"
+                onClick={closeMenu}
+              >
+                Calcula tu presupuesto
+              </Button>
+            </a>
           )}
         </div>
       </div>
