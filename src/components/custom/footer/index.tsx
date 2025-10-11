@@ -11,7 +11,7 @@ interface FooterProps {
 }
 
 
-export function DlxFooter({ showSocialMedia, showServices, showLastProjects }: FooterProps) {
+export function DlxFooter({ showSocialMedia = true, showServices = true, showLastProjects = true }: FooterProps) {
   return (
     <div className="w-full">
       {/* Footer Section */}
