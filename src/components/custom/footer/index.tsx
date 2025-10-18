@@ -35,15 +35,15 @@ export function DlxFooter({ showSocialMedia = true, showServices = true, showLas
                   <ul className="space-y-3">
                     <li>
                       <DlxLink
-                        href="https://www.despejalax.com#arquitectura">Arquitectura</DlxLink>
+                        href="https://www.despejalax.es#arquitectura">Arquitectura</DlxLink>
                     </li>
                     <li>
                       <DlxLink
-                        href="https://www.despejalax.com#interiorismo">Interiorismo</DlxLink>
+                        href="https://www.despejalax.es#interiorismo">Interiorismo</DlxLink>
                     </li>
                     <li>
                       <DlxLink
-                        href="https://www.despejalax.com#asesoramiento">Asesoramiento</DlxLink>
+                        href="https://www.despejalax.es#asesoramiento">Asesoramiento</DlxLink>
                     </li>
                   </ul>
                 </div>)}
@@ -56,15 +56,15 @@ export function DlxFooter({ showSocialMedia = true, showServices = true, showLas
                   <ul className="space-y-3">
                     <li>
                       <DlxLink
-                        href="https://www.despejalax.com/proyectos">RMNC</DlxLink>
+                        href="https://www.despejalax.es/proyectos">RMNC</DlxLink>
                     </li>
                     <li>
                       <DlxLink
-                        href="https://www.despejalax.com/proyectos">MGJA</DlxLink>
+                        href="https://www.despejalax.es/proyectos">MGJA</DlxLink>
                     </li>
                     <li>
                       <DlxLink
-                        href="https://www.despejalax.com/proyectos">XMYN</DlxLink>
+                        href="https://www.despejalax.es/proyectos">XMYN</DlxLink>
                     </li>
                   </ul>
                 </div>)}

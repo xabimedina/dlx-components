@@ -1,6 +1,6 @@
 {
   "name": "@xabimedina/dlx-components",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "type": "module",
   "module": "./dist/dlx-components.es.js",
   "types": "./dist/dlx-components.d.ts",

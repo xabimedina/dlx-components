@@ -109,7 +109,7 @@ export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNav
             </div>
 
             {showCTA && (
-              <a href="https://calculadora.despejalax.com" target="_blank" className="max-md:hidden">
+              <a href="https://calculadora.despejalax.es" target="_blank" className="max-md:hidden">
                 <Button variant="accent">Calcula tu presupuesto</Button>
               </a>
             )}
