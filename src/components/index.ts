@@ -24,3 +24,4 @@ export * from "./badge";
 export * from "./dropdown-menu";
 export * from "./label";
 export * from "./textarea";
+export * from "./cookie-consent";
