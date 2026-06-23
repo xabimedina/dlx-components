@@ -1,6 +1,8 @@
+import Facebook from "./icons/facebook";
 import Instagram from "./icons/instagram";
 import LinkedIn from "./icons/linkedin";
-//import YouTube from "./icons/youtube";
+import TikTok from "./icons/tiktok";
+import YouTube from "./icons/youtube";
 import { DlxLink } from "../dlx-link";
 import { FooterSocialMedia } from "./footer-social-media";
 
@@ -10,6 +12,33 @@ interface FooterProps {
   showLastProjects?: boolean;
 }
 
+const socialMediaLinks = [
+  {
+    icon: Facebook,
+    label: "Facebook",
+    link: "https://www.facebook.com/profile.php?id=61591267977461",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    link: "https://www.instagram.com/despejalax/",
+  },
+  {
+    icon: LinkedIn,
+    label: "LinkedIn",
+    link: "https://www.linkedin.com/company/130274084/",
+  },
+  {
+    icon: YouTube,
+    label: "YouTube",
+    link: "https://www.youtube.com/@DespejalaXarquitectura",
+  },
+  {
+    icon: TikTok,
+    label: "TikTok",
+    link: "https://www.tiktok.com/@despeja_la_x",
+  },
+] as const;
 
 export function DlxFooter({ showSocialMedia = true, showServices = true, showLastProjects = true }: FooterProps) {
   return (
@@ -74,19 +103,15 @@ export function DlxFooter({ showSocialMedia = true, showServices = true, showLas
             {showSocialMedia && (
               <div className="lg:col-span-1">
                 <h3 className="font-semibold text-lg mb-4">Síguenos</h3>
-                <div className="flex py-2 space-x-8">
-                  <FooterSocialMedia
-                    icon={<Instagram className="h-5 w-5" />}
-                    link="https://instagram.com/despejalax"
-                  />
-                  <FooterSocialMedia
-                    icon={<LinkedIn className="h-5 w-5" />}
-                    link="https://www.linkedin.com/company/despejalax/"
-                  />
-                  {/*                 <FooterSocialMedia
-                  icon={<YouTube className="h-5 w-5" />}
-                  link="https://www.youtube.com/channel/UC0-3-9-0q-2-5-8-6-4"
-                /> */}
+                <div className="flex flex-wrap items-center gap-6 py-2">
+                  {socialMediaLinks.map(({ icon: Icon, label, link }) => (
+                    <FooterSocialMedia
+                      key={label}
+                      icon={<Icon className="h-5 w-5" />}
+                      label={label}
+                      link={link}
+                    />
+                  ))}
                 </div>
               </div>)}
           </div>
