@@ -11,10 +11,11 @@ import { NavMobile } from "./nav-mobile";
 export interface DlxNavbarProps {
   type?: "default" | "smoke";
   showCTA?: boolean;
+  logoHref?: string;
   children?: React.ReactNode;
 }
 
-export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNavbarProps) {
+export function DlxNavbar({ type = "default", children, showCTA = true, logoHref = "/" }: DlxNavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -102,7 +103,7 @@ export function DlxNavbar({ type = "default", children, showCTA = true }: DlxNav
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16 z-100">
-            <NavLogo type={type} />
+            <NavLogo type={type} logoHref={logoHref} />
 
             <div className="max-md:hidden">
               <NavLinks>{children}</NavLinks>

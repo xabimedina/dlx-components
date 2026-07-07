@@ -1,11 +1,11 @@
 import type { DlxNavbarProps } from ".";
 
-export function NavLogo({type}:DlxNavbarProps) {
+export function NavLogo({ type, logoHref = "/" }: DlxNavbarProps) {
   const logoType = type === 'smoke' ? 'black' : 'white'
   return (
     <div className="flex-shrink-0 z-50">
       <a
-        href="/"
+        href={logoHref}
         className="flex items-center transition-transform duration-200 hover:scale-105"
       >
         <img
