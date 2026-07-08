@@ -6,10 +6,16 @@ import YouTube from "./icons/youtube";
 import { DlxLink } from "../dlx-link";
 import { FooterSocialMedia } from "./footer-social-media";
 
-interface FooterProps {
+export interface FooterProject {
+  name: string;
+  href: string;
+}
+
+export interface FooterProps {
   showSocialMedia?: boolean;
   showServices?: boolean;
   showLastProjects?: boolean;
+  lastProjects?: FooterProject[];
 }
 
 const socialMediaLinks = [
@@ -40,7 +46,14 @@ const socialMediaLinks = [
   },
 ] as const;
 
-export function DlxFooter({ showSocialMedia = true, showServices = true, showLastProjects = true }: FooterProps) {
+export function DlxFooter({
+  showSocialMedia = true,
+  showServices = true,
+  showLastProjects = true,
+  lastProjects = [],
+}: FooterProps) {
+  const shouldShowLastProjects = showLastProjects && lastProjects.length > 0;
+
   return (
     <div className="w-full">
       {/* Footer Section */}
@@ -77,24 +90,17 @@ export function DlxFooter({ showSocialMedia = true, showServices = true, showLas
                   </ul>
                 </div>)}
 
-              {showLastProjects && (
+              {shouldShowLastProjects && (
                 <div>
                   <h3 className="font-semibold text-lg mb-4">
-                    Ultimos proyectos
+                    Últimos proyectos
                   </h3>
                   <ul className="space-y-3">
-                    <li>
-                      <DlxLink
-                        href="https://www.despejalax.es/proyectos">RMNC</DlxLink>
-                    </li>
-                    <li>
-                      <DlxLink
-                        href="https://www.despejalax.es/proyectos">MGJA</DlxLink>
-                    </li>
-                    <li>
-                      <DlxLink
-                        href="https://www.despejalax.es/proyectos">XMYN</DlxLink>
-                    </li>
+                    {lastProjects.map((project) => (
+                      <li key={project.href}>
+                        <DlxLink href={project.href}>{project.name}</DlxLink>
+                      </li>
+                    ))}
                   </ul>
                 </div>)}
             </div>
